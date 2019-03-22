@@ -15,9 +15,9 @@ require_once('config.php');
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpat.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 </head>
 
@@ -27,7 +27,7 @@ require_once('config.php');
         <form method="post">
             <div class="form-group">
 
-                <select class="form-control col-12" name="potion">
+                <select class="form-control form-control-sm col-12" name="potion">
                     <option>Tipo de Alquimia</option>
                     <option value="1">Poçoes comuns</option>
                     <option value="2">Álcool</option>
@@ -44,41 +44,43 @@ require_once('config.php');
             <div class="form-group form-row">
 
                 <div class="form-group col-4">
-                    <input class="form-control form-control-sm" type="text" name='PP' placeholder="Nível de preparar poções">
+                    <input id="atributo" class="atributo form-control form-control-sm" type="text" name='PP' placeholder="Nível de Pesquisa de poções">
                     <small id="emailHelp" class="form-text text-muted">Nível máximo 10</small>
                 </div>
 
                 <div class="form-group col-4">
-                    <input class="form-control form-control-sm" type="text" name='PR' placeholder="Nível de preparar poções">
+                    <input id="atributo" class="atributo form-control form-control-sm" type="text" name='PR' placeholder="Nível de preparar poções">
                     <small id="emailHelp" class="form-text text-muted">Nível máximo 10</small>
                 </div>
 
                 <div class="form-group col-4">
-                    <input class="form-control form-control-sm" type="text" name='MP' placeholder="Nível de preparar poções">
+                    <input id="atributo" class="atributo form-control form-control-sm" type="text" name='MP' placeholder="Nível Mudança de Planos">
                     <small id="emailHelp" class="form-text text-muted">Nível máximo 5</small>
                 </div>
 
                 <div class="form-group col-4">
-                    <input class="form-control form-control-sm" type="text" name='NC' placeholder="Nível de preparar poções">
+                    <input id="atributo" class="atributo form-control form-control-sm" type="text" name='NC' placeholder="Nível de Classe">
+                    <small id="emailHelp" class="form-text text-muted">Nível máximo 70</small>
                 </div>
 
                 <div class="form-group col-4">
-                    <input class="form-control form-control-sm" type="text" name='DZ' placeholder="Nível de preparar poções">
+                    <input id="num" class="num form-control form-control-sm" type="text" name='DZ' placeholder="Destreza">
+                    <small id="emailHelp" class="form-text text-muted"></small>
                 </div>
 
                 <div class="form-group col-4">
-                    <input class="form-control form-control-sm" type="text" name='ST' placeholder="Nível de preparar poções">
+                    <input id="num" class="num form-control form-control-sm" type="text" name='ST' placeholder="Sorte">
+                    <small id="emailHelp" class="form-text text-muted"></small>
                 </div>
 
                 <div class="form-group col-4">
-                    <input class="form-control form-control-sm" type="text" name='IT' placeholder="Nível de preparar poções">
+                    <input id="num" class="num form-control form-control-sm" type="text" name='IT' placeholder="Inteligência">
                 </div>
 
             </div>
 
-
             <div class="form-group">
-                <input class="btn btn-primary btn-sm btn-block" type="submit" value="Submit me!">
+                <input class="btn btn-secondary btn-sm btn-block" type="submit" value="Calcular!">
             </div>
 
             <!-- <input type="text" name='PP'>
@@ -115,33 +117,33 @@ require_once('config.php');
 
                 switch ($potion) {
                     case '1':
-                        $Pvermelha = new Potion();
-                        $Pvermelha->HealPotion($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                        $Potion = new Potion();
+                        $Potion->HealPotion($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
                         break;
 
                     case '2':
-                        $Alcool = new Potion();
-                        $Alcool->Alcool($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                        $Potion = new Potion();
+                        $Potion->Alcool($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
                         break;
 
                     case '3':
-                        $Alcool = new Potion();
-                        $Alcool->Frascos($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                        $Potion = new Potion();
+                        $Potion->Frascos($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
                         break;
 
                     case '4':
-                        $Alcool = new Potion();
-                        $Alcool->PropriedadesPCvermelha($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                        $Potion = new Potion();
+                        $Potion->PropriedadesPCvermelha($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
                         break;
 
                     case '5':
-                        $Alcool = new Potion();
-                        $Alcool->CompactaAmarela($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                        $Potion = new Potion();
+                        $Potion->CompactaAmarela($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
                         break;
 
                     case '6':
-                        $Alcool = new Potion();
-                        $Alcool->RevestimentoPCbranca($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                        $Potion = new Potion();
+                        $Potion->RevestimentoPCbranca($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
                         break;
 
                     default:
@@ -154,6 +156,12 @@ require_once('config.php');
         ?>
 
     </section>
+
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+    <script>
+        $('.atributo').mask('99');
+        $('.num').mask('9999');
+    </script>
 
 </body>
 
