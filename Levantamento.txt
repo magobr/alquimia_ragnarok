@@ -1,0 +1,41 @@
+------------
+Dificuldade
+	0.2 -> Poção Vermelha, Poção Amarela, Poção Branca 
+	0.1 -> Álcool
+	0 -> Frasco de Ácido, Frasco de Esfera Marinha, Frasco de Fogo Grego, Frasco de Planta Carnívora
+	-0.5 -> Poção Azul, Analgésico, Aloe Vera, Embrião, Poções Anti-Propriedade, Poção Compacta Vermelha
+	-0.7 -> Poção Compacta Amarela
+	-0.1 -> Poção Compacta Branca, Frasco de Revestimento
+	
+Pesquisa de poções - PP( < 11)
+Preparo de poções - PR( < 11)
+Mudança de Planos - MP ( < 6)
+Nivel de Classe  - NC( < 71)
+Nivel de Destreza - DZ 
+Nivel de Sorte - ST
+Nivel de Inteligencia - IT
+
+
+chance = ((PP) + (PR * 3) + (MP) + (NC * 0.2) + (DZ * 0.1) + (ST * 0.1) + (IT * 0.05) + (dificuldade));
+
+------------
+classe
+	Função
+		Dificuldade
+		Atributos
+	Calcula
+		Resultado
+		
+------------
+
+http://www.devfuria.com.br/php/manipulando-combobox-com-php/
+
+------------
+
+
++20%	Poção Vermelha, Poção Amarela, Poção Branca.
++10%	Álcool.
+0%	Frasco de Ácido, Frasco de Esfera Marinha, Frasco de Fogo Grego, Frasco de Planta Carnívora.
+-5%	Poção Azul, Analgésico, Aloe Vera, Embrião, Poções Anti-Propriedade, Poção Compacta Vermelha.
+-7%	Poção Compacta Amarela.
+-10%	Poção Compacta Branca, Frasco de Revestimento.
