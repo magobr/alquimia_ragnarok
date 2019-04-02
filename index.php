@@ -15,14 +15,13 @@ require_once('config.php');
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpat.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <section class="middle">
+    <section class="calc middle">
 
         <form method="post">
             <div class="form-group">
@@ -95,61 +94,72 @@ require_once('config.php');
 
         <?php
 
-        if (
-            isset($_POST['PP']) && isset($_POST['PR']) && isset($_POST['MP']) && isset($_POST['NC'])
-            && isset($_POST['DZ']) && isset($_POST['ST']) && isset($_POST['IT'])
-        ) {
+        if ( isset($_POST['PP']) && isset($_POST['PR']) && isset($_POST['MP']) && isset($_POST['NC']) && isset($_POST['DZ']) && isset($_POST['ST']) && isset($_POST['IT']) )
+        {
+            if ( is_numeric($_POST['PP']) && is_numeric($_POST['PR']) && is_numeric($_POST['MP']) && is_numeric($_POST['NC']) && is_numeric($_POST['DZ']) && is_numeric($_POST['ST']) && is_numeric($_POST['IT']) ) 
+            {
 
-            $potion = $_POST['potion'];
-            $PP = $_POST['PP'];
-            $PR = $_POST['PR'];
-            $MP = $_POST['MP'];
-            $NC = $_POST['NC'];
-            $DZ = $_POST['DZ'];
-            $ST = $_POST['ST'];
-            $IT = $_POST['IT'];
+                $potion = $_POST['potion'];
+                $PP = $_POST['PP'];
+                $PR = $_POST['PR'];
+                $MP = $_POST['MP'];
+                $NC = $_POST['NC'];
+                $DZ = $_POST['DZ'];
+                $ST = $_POST['ST'];
+                $IT = $_POST['IT'];
 
-            if (($PP > 10) || ($PR > 10) || ($MP > 5) || ($NC > 70)) {
-                echo '<div class="alert alert-danger" role="alert">' . 'Valor incorreto' . '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>' . '</div>';
-            } else {
+                if (($PP > 10) || ($PR > 10) || ($MP > 5) || ($NC > 70)) {
+                    echo '<div class="alert alert-danger" role="alert">
+                            <b>Valor incorreto</b>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>';
+                } else {
 
-                switch ($potion) {
-                    case '1':
-                        $Potion = new Potion();
-                        $Potion->HealPotion($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
-                        break;
+                    switch ($potion) {
+                        case '1':
+                            $Potion = new Potion();
+                            $Potion->HealPotion($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                            break;
 
-                    case '2':
-                        $Potion = new Potion();
-                        $Potion->Alcool($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
-                        break;
+                        case '2':
+                            $Potion = new Potion();
+                            $Potion->Alcool($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                            break;
 
-                    case '3':
-                        $Potion = new Potion();
-                        $Potion->Frascos($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
-                        break;
+                        case '3':
+                            $Potion = new Potion();
+                            $Potion->Frascos($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                            break;
 
-                    case '4':
-                        $Potion = new Potion();
-                        $Potion->PropriedadesPCvermelha($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
-                        break;
+                        case '4':
+                            $Potion = new Potion();
+                            $Potion->PropriedadesPCvermelha($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                            break;
 
-                    case '5':
-                        $Potion = new Potion();
-                        $Potion->CompactaAmarela($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
-                        break;
+                        case '5':
+                            $Potion = new Potion();
+                            $Potion->CompactaAmarela($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                            break;
 
-                    case '6':
-                        $Potion = new Potion();
-                        $Potion->RevestimentoPCbranca($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
-                        break;
+                        case '6':
+                            $Potion = new Potion();
+                            $Potion->RevestimentoPCbranca($PP, $PR, $MP, $NC, $DZ, $ST, $IT);
+                            break;
 
-                    default:
-                        echo null;
-                        break;
+                        default:
+                            echo null;
+                            break;
+                    }
                 }
+            } else{
+                echo '<div class="alert alert-warning" role="alert">
+                        <b>Preencha todos os Campos</b>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>';
             }
         }
 
@@ -162,7 +172,6 @@ require_once('config.php');
         $('.atributo').mask('99');
         $('.num').mask('9999');
     </script>
-
 </body>
 
 </html> 

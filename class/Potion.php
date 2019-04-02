@@ -6,7 +6,7 @@ class Potion
     private function Calcula($PP, $PR, $MP, $NC, $DZ, $ST, $IT, $dificuldade)
     {
         $chance = (($PP) + ($PR * 3) + ($MP) + ($NC * 0.2) + ($DZ * 0.1) + ($ST * 0.1) + ($IT * 0.05) + ($dificuldade));
-        echo'<h4>'.$chance.'%'.'<h4>';
+        echo'<h4 class = "resultado">'.$chance.'%'.'<h4>';
     }
 
     public function HealPotion($PP, $PR, $MP, $NC, $DZ, $ST, $IT)
