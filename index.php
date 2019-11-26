@@ -27,7 +27,7 @@ require_once('config.php');
             <div class="form-group">
 
                 <select class="form-control form-control-sm col-12" name="potion">
-                    <option>Tipo de Alquimia</option>
+                    <option value="0">Tipo de Alquimia</option>
                     <option value="1">Poçoes comuns</option>
                     <option value="2">Álcool</option>
                     <option value="3">Frascos</option>
@@ -82,14 +82,6 @@ require_once('config.php');
                 <input class="btn btn-secondary btn-sm btn-block" type="submit" value="Calcular!">
             </div>
 
-            <!-- <input type="text" name='PP'>
-        <input type="text" name='PR'>
-        <input type="text" name='MP'>
-        <input type="text" name='NC'>
-        <input type="text" name='DZ'>
-        <input type="text" name='ST'>
-        <input type="text" name='IT'> -->
-
         </form>
 
         <?php
@@ -116,6 +108,15 @@ require_once('config.php');
                             </button>
                         </div>';
                 } else {
+
+                    if ( $potion == 0 ){
+                        echo '<div class="alert alert-warning" role="alert">
+                                <b>Selecione o Tipo de poção</b>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>';
+                    }
 
                     switch ($potion) {
                         case '1':
